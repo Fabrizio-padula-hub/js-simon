@@ -7,6 +7,10 @@
 
 // Ci serve l’arrayPc di numeri contenente i 5 numeri da far vedere quando si apre la pagina
 // Nel dom creare un div e appendere i numeri dell’arrayPc 
+const numberArrayPc = [6, 34, 89, 1, 42];
+console.log(numberArrayPc)
+const containerNumbersPc = document.querySelector('#number-array');
+console.log(containerNumbersPc)
 
 
 // Partita la pagina inizia a scorrere il tempo di 30 secondi
