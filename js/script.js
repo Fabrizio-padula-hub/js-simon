@@ -20,11 +20,17 @@ const timeStopPrompt = 11;
 // Ci serve l’arrayPc di numeri contenente i 5 numeri da far vedere quando si apre la pagina
 const numberArrayPc = [6, 34, 89, 1, 42];
 // cicla l'array
-const itemsArray = scrollArray(numberArrayPc);
+let numberPcList;
+let indexPc;
+for(let i = 0; i < numberArrayPc.length; i++){
+    numberPcList = numberArrayPc[i];
+    indexPc = i;
+    console.log(numberPcList)
+}
 
 // Nel dom creare un div e appendere i numeri di numberArrayPc 
 const containerNumbersPc = document.querySelector('#number-array');
-containerNumbersPc.innerHTML = `<span>${itemsArray}</span>`;
+containerNumbersPc.innerHTML = `<span>${numberArrayPc}</span>`;
 
 // Partita la pagina inizia a scorrere il tempo di 30 secondi
 const reverseClock = setInterval(function(){
@@ -45,6 +51,9 @@ console.log(containerClock)
 // inserisce i numeri, inserirli nell’array dei numeri dell’utente
 // (Per 5 volte compare il prompt e pushare nell'arrayUser)
 let askUser;
+let numberUserList;
+let indexUser;
+const arrayUser = [];
 const promptClock = setInterval(function(){
     timerPrompt++;
     if(timerPrompt === timeStopPrompt){
@@ -53,13 +62,27 @@ const promptClock = setInterval(function(){
             askUser = parseInt(prompt('Scrivi i numeri memorizzati'));
             console.log(askUser)
         }
+        arrayUser.push(askUser);
+        for(let i = 0; i < arrayUser.length; i++){
+            numberUserList = arrayUser[i];
+            indexUser = i;
+            console.log(numberUserList)
+
+            if(numberUserList === numberPcList){
+                alert('I numeri scritti sono tutti giusti')
+            }else if(numberUserList !== numberPcList){
+                alert(`I numeri che hai scritto non sono uguali a questi ${numberArrayPc}, ti mancano ${indexUser - indexPc} numeri per vincere`)
+            }
+        }
         
     }
+    
 }, 1000)
 
 
-// Adesso devo comparare i numeri che sono dentro l’array Pc ai numeri dell’array user, 
-// 	se i numeri dell’utente sono === all’array Pc
+// Adesso devo comparare i numeri che sono dentro numberArrayPc ai numeri dell’array user, 
+
+// 	se i numeri dell’utente sono === numberArrayPc
 // 		far uscire il messaggio che i numeri sono tutti uguali
 // 	altrimenti se i numeri pc !== numeri utente
 // 		far comparire un messaggio che dice i numeri mancanti 
@@ -67,21 +90,3 @@ const promptClock = setInterval(function(){
 // 		far comparire un messaggio che dice quanti numeri mancano 
 // 		(scrivere l’indice dell’arrayUtente - l’indice dell’arrayPc) Quanti numeri
 
-
-
-// FUNCTIONS
-
-// nameArray si sostituisce col nome dell'array
-// prende tutti gli elementi di un array
-// li cicla per la lunghezza dell'array stesso 
-// e restituisce gli elementi all'interno dell'array
-// è presente il console.log
-function scrollArray(nameArray){
-    let numberList = [];
-    for(let i = 0; i < nameArray.length; i++){
-        numberList.push(nameArray[i]);
-        console.log(numberList)
-    
-    }
-    return numberList;
-} 
