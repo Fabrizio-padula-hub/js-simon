@@ -5,6 +5,18 @@
 // e quali dei numeri da indovinare sono stati individuati.
 
 
+// qui ci sono le variabili che gestiscono il tempo di partenza
+// e il tempo di arrivo del conto alla rovescia
+// dove timer è la partenza e timereverse è l'arrivo dei secondi
+let timer = 10;
+const timeStopreverse = 0;
+// qui ci sono le variabili che gestiscono il tempo di partenza
+// e il tempo di arrivo del prompt all'user
+// dove timerPrompt è la partenza e timePrompt è l'arrivo dei secondi
+let timerPrompt = 0;
+const timeStopPrompt = 11;
+
+
 // Ci serve l’arrayPc di numeri contenente i 5 numeri da far vedere quando si apre la pagina
 const numberArrayPc = [6, 34, 89, 1, 42];
 // cicla l'array
@@ -15,12 +27,13 @@ const containerNumbersPc = document.querySelector('#number-array');
 containerNumbersPc.innerHTML = `<span>${itemsArray}</span>`;
 
 // Partita la pagina inizia a scorrere il tempo di 30 secondi
-let timer = 30;
 const reverseClock = setInterval(function(){
     timer--;
     containerClock.innerHTML = `<span>Hai ${timer} secondi per memorizzare i numeri</span>`;
-    if(timer === 0){
+    if(timer === timeStopreverse){
         clearInterval(reverseClock);
+        // Far scomparire l’arrayPc dopo 30 secondi 
+        containerNumbersPc.innerHTML = '';
     }
 }, 1000)
 
@@ -28,12 +41,21 @@ const reverseClock = setInterval(function(){
 const containerClock = document.querySelector('#time');
 console.log(containerClock)
 
-// Far scomparire l’arrayPc dopo 30 secondi 
-// (Quindi al timer attaccare il prompt per utente)
-
 // Adesso compare il prompt per l’utente, per 5 volte. Quando l’utente
 // inserisce i numeri, inserirli nell’array dei numeri dell’utente
 // (Per 5 volte compare il prompt e pushare nell'arrayUser)
+let askUser;
+const promptClock = setInterval(function(){
+    timerPrompt++;
+    if(timerPrompt === timeStopPrompt){
+        clearInterval(promptClock);
+        for(let i = 0; i < 5; i++){
+            askUser = parseInt(prompt('Scrivi i numeri memorizzati'));
+            console.log(askUser)
+        }
+        
+    }
+}, 1000)
 
 
 // Adesso devo comparare i numeri che sono dentro l’array Pc ai numeri dell’array user, 
