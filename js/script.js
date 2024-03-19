@@ -13,11 +13,20 @@ const itemsArray = scrollArray(numberArrayPc);
 // Nel dom creare un div e appendere i numeri di numberArrayPc 
 const containerNumbersPc = document.querySelector('#number-array');
 containerNumbersPc.innerHTML = `<span>${itemsArray}</span>`;
-console.log(containerNumbersPc)
-
-
 
 // Partita la pagina inizia a scorrere il tempo di 30 secondi
+let timer = 30;
+const reverseClock = setInterval(function(){
+    timer--;
+    containerClock.innerHTML = `<span>Hai ${timer} secondi per memorizzare i numeri</span>`;
+    if(timer === 0){
+        clearInterval(reverseClock);
+    }
+}, 1000)
+
+// mi prendo il div e ci appendo il timer
+const containerClock = document.querySelector('#time');
+console.log(containerClock)
 
 // Far scomparire l’arrayPc dopo 30 secondi 
 // (Quindi al timer attaccare il prompt per utente)
