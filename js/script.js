@@ -67,7 +67,14 @@ const promptClock = setInterval(function(){
             numberUserList = arrayUser[i];
             indexUser = i;
             console.log(numberUserList)
-
+            // Adesso devo comparare i numeri che sono dentro numberArrayPc ai numeri dell’array user
+            // se i numeri dell’utente sono === numberArrayPc
+    		    // far uscire il messaggio che i numeri sono tutti uguali
+     	    // altrimenti se i numeri pc !== numeri utente
+                // far comparire un messaggio che dice i numeri mancanti 
+                // (scrivere solo i numeri dell’arrayUtente che sono inclusi nell’arrayPc ) Quali numeri
+                // far comparire un messaggio che dice quanti numeri mancano 
+                // (scrivere l’indice dell’arrayUtente - l’indice dell’arrayPc) Quanti numeri
             if(numberUserList === numberPcList){
                 alert('I numeri scritti sono tutti giusti')
             }else if(numberUserList !== numberPcList){
@@ -79,14 +86,4 @@ const promptClock = setInterval(function(){
     
 }, 1000)
 
-
-// Adesso devo comparare i numeri che sono dentro numberArrayPc ai numeri dell’array user, 
-
-// 	se i numeri dell’utente sono === numberArrayPc
-// 		far uscire il messaggio che i numeri sono tutti uguali
-// 	altrimenti se i numeri pc !== numeri utente
-// 		far comparire un messaggio che dice i numeri mancanti 
-// 		(scrivere solo i numeri dell’arrayUtente che sono inclusi nell’arrayPc ) Quali numeri
-// 		far comparire un messaggio che dice quanti numeri mancano 
-// 		(scrivere l’indice dell’arrayUtente - l’indice dell’arrayPc) Quanti numeri
 
