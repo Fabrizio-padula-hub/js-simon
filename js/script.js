@@ -21,11 +21,8 @@ const timeStopPrompt = 11;
 const numberArrayPc = [6, 34, 89, 1, 42];
 // cicla l'array
 let numberPcList;
-let indexPc;
 for(let i = 0; i < numberArrayPc.length; i++){
     numberPcList = numberArrayPc[i];
-    indexPc = i;
-    console.log(numberPcList)
 }
 
 // Nel dom creare un div e appendere i numeri di numberArrayPc 
@@ -45,14 +42,12 @@ const reverseClock = setInterval(function(){
 
 // mi prendo il div e ci appendo il timer
 const containerClock = document.querySelector('#time');
-console.log(containerClock)
 
 // Adesso compare il prompt per l’utente, per 5 volte. Quando l’utente
 // inserisce i numeri, inserirli nell’array dei numeri dell’utente
 // (Per 5 volte compare il prompt e pushare nell'arrayUser)
 let askUser;
 let numberUserList;
-let indexUser;
 const arrayUser = [];
 const promptClock = setInterval(function(){
     timerPrompt++;
@@ -60,13 +55,10 @@ const promptClock = setInterval(function(){
         clearInterval(promptClock);
         for(let i = 0; i < 5; i++){
             askUser = parseInt(prompt('Scrivi i numeri memorizzati'));
-            console.log(askUser)
         }
         arrayUser.push(askUser);
         for(let i = 0; i < arrayUser.length; i++){
-            numberUserList = arrayUser[i];
-            indexUser = i;
-            console.log(numberUserList)
+            numberUserList = arrayUser[i];  
             // Adesso devo comparare i numeri che sono dentro numberArrayPc ai numeri dell’array user
             // se i numeri dell’utente sono === numberArrayPc
     		    // far uscire il messaggio che i numeri sono tutti uguali
@@ -78,7 +70,7 @@ const promptClock = setInterval(function(){
             if(numberUserList === numberPcList){
                 alert('I numeri scritti sono tutti giusti')
             }else if(numberUserList !== numberPcList){
-                alert(`I numeri che hai scritto non sono uguali a questi ${numberArrayPc}, ti mancano ${indexUser - indexPc} numeri per vincere`)
+                alert(`I numeri che hai scritto non sono uguali a questi ${numberArrayPc}, ti mancano ${numberArrayPc.length - arrayUser.length} numeri per vincere`)
             }
         }
         
