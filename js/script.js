@@ -6,11 +6,15 @@
 
 
 // Ci serve l’arrayPc di numeri contenente i 5 numeri da far vedere quando si apre la pagina
-// Nel dom creare un div e appendere i numeri dell’arrayPc 
 const numberArrayPc = [6, 34, 89, 1, 42];
-console.log(numberArrayPc)
+// cicla l'array
+const itemsArray = scrollArray(numberArrayPc);
+
+// Nel dom creare un div e appendere i numeri di numberArrayPc 
 const containerNumbersPc = document.querySelector('#number-array');
+containerNumbersPc.innerHTML = `<span>${itemsArray}</span>`;
 console.log(containerNumbersPc)
+
 
 
 // Partita la pagina inizia a scorrere il tempo di 30 secondi
@@ -31,3 +35,22 @@ console.log(containerNumbersPc)
 // 		(scrivere solo i numeri dell’arrayUtente che sono inclusi nell’arrayPc ) Quali numeri
 // 		far comparire un messaggio che dice quanti numeri mancano 
 // 		(scrivere l’indice dell’arrayUtente - l’indice dell’arrayPc) Quanti numeri
+
+
+
+// FUNCTIONS
+
+// nameArray si sostituisce col nome dell'array
+// prende tutti gli elementi di un array
+// li cicla per la lunghezza dell'array stesso 
+// e restituisce gli elementi all'interno dell'array
+// è presente il console.log
+function scrollArray(nameArray){
+    let numberList = [];
+    for(let i = 0; i < nameArray.length; i++){
+        numberList.push(nameArray[i]);
+        console.log(numberList)
+    
+    }
+    return numberList;
+} 
